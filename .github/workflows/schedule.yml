@@ -1,0 +1,24 @@
+name: Agendamento de Execução de exemplo
+
+on:
+  schedule:
+    - cron: '0 08-18 * * 1-5'
+
+jobs:
+  RunProject:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar projeto
+        uses: actions/checkout@v3
+
+      - name: Configurar Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 17
+
+      - name: Instalar dependecias
+        run: npm install
+
+      - name: Rodar projeto
+        run: node index.js
