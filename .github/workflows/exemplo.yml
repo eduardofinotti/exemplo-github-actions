@@ -1,8 +1,7 @@
 name: Execução de exemplo
 
 on:
-  pull_request:
-    branches: [master]
+  workflow_dispatch
 
 jobs:
   RunProject:
