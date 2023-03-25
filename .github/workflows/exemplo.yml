@@ -1,0 +1,24 @@
+name: Execução de exemplo
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  RunProject:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar projeto
+        uses: actions/checkout@v3
+
+      - name: Configurar Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 17
+
+      - name: Instalar dependecias
+        run: npm install
+
+      - name: Rodar projeto
+        run: node index.js
